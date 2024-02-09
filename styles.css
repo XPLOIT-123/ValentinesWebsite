@@ -12,10 +12,18 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative; /* make container relative for absolute positioning */
 }
 
 #messageContainer {
   margin-top: 20px;
   font-size: 24px;
   color: #ff1493; /* deep pink color for messages */
+}
+
+.clickMessage {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  color: #777; /* dark gray color for click message */
 }
