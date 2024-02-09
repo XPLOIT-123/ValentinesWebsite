@@ -1,15 +1,15 @@
+let currentMessageIndex = 0;
+
+const messages = [
+  "Hello there!",
+  "You clicked the screen!",
+  "This is a message.",
+  "Click again for more messages!"
+];
+
 function displayMessage() {
-    const messages = [
-      "Hello there!",
-      "You clicked the screen!",
-      "This is a message.",
-      "Click again for more messages!"
-    ];
+  const messageContainer = document.getElementById("messageContainer");
+  messageContainer.textContent = messages[currentMessageIndex];
   
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    const message = messages[randomIndex];
-    
-    const messageContainer = document.getElementById("messageContainer");
-    messageContainer.textContent = message;
-  }
-  
+  currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+}
