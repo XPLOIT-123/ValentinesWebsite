@@ -2,31 +2,31 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #ffe6e6; /* light pink background */
-  overflow: hidden; /* Prevent hearts from overflowing */
+  background-color: #ffe6e6; 
+  overflow: hidden; 
 }
 
 .container {
-  height: calc(100% - 40px); /* Adjust height for click message */
+  height: calc(100% - 40px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative; /* make container relative for absolute positioning */
+  position: relative; 
 }
 
 #messageContainer {
   margin-top: 20px;
   font-size: 24px;
-  color: #ff1493; /* deep pink color for messages */
+  color: #ff1493; 
 }
 
 .clickMessage {
   position: absolute;
   bottom: 20px;
   font-size: 14px;
-  color: #777; /* dark gray color for click message */
+  color: #777; 
 }
 
 .hearts-container {
@@ -46,7 +46,7 @@ body, html {
   position: absolute;
   width: 10px;
   height: 10px;
-  background-color: #ff1493; /* deep pink color */
+  background-color: #ff1493; 
   clip-path: polygon(
     50% 0%,
     100% 35%,
@@ -58,7 +58,6 @@ body, html {
   animation: moveHearts 10s linear infinite;
 }
 
-/* Adjust the position of hearts as needed */
 .heart:nth-child(1) { top: 10%; left: 5%; animation-delay: 1s; }
 .heart:nth-child(2) { top: 20%; left: 20%; animation-delay: 2s; }
 .heart:nth-child(3) { top: 30%; left: 70%; animation-delay: 3s; }
