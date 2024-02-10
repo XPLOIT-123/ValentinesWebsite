@@ -71,16 +71,16 @@
 <h2>Click anywhere on the screen to see love messages</h2>
 <script>
     // Function to create a heart element at random position
-    function createHeart() {
+    function createHeart(x, y) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
-        heart.style.left = Math.random() * window.innerWidth + 'px';
-        heart.style.top = Math.random() * window.innerHeight + 'px';
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
         document.getElementById('heart-container').appendChild(heart);
     }
 
     // Function to display love messages
-    function displayLoveMessage() {
+    function displayLoveMessage(x, y) {
         const loveMessages = [
             "You make my world brighter!",
             "You are my sunshine on a cloudy day!",
@@ -92,16 +92,20 @@
         const message = document.createElement('div');
         message.classList.add('love-message');
         message.textContent = loveMessages[randomIndex];
+        message.style.left = x + 'px';
+        message.style.top = y + 'px';
         document.body.appendChild(message);
         setTimeout(() => {
             message.remove();
         }, 5000); // Remove after 5 seconds
     }
 
-    // Event listener to create heart on click
+    // Event listener to create heart and display message on click
     document.addEventListener('click', function(event) {
-        createHeart();
-        displayLoveMessage();
+        const x = event.clientX;
+        const y = event.clientY;
+        createHeart(x, y);
+        displayLoveMessage(x, y);
     });
 </script>
 </body>
