@@ -1,17 +1,79 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles.css">
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love Messages</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Theme Website</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f7eaea; /* Light pink background */
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #heart-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+    .heart {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-image: url('heart.png'); /* Use a heart image */
+        background-size: cover;
+        animation: float 5s infinite;
+    }
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+</style>
 </head>
 <body>
-  <div class="container" onclick="displayMessage()">
-    <div id="messageContainer"></div>
-    <div class="clickMessage">Click anywhere on the screen to feel the love</div>
-  </div>
-  <script src="script.js"></script>
+<div id="heart-container"></div>
+<h1>Spread Love!</h1>
+<h2>Click anywhere on the screen to see love messages</h2>
+<script>
+    // Function to create a heart element at random position
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = Math.random() * window.innerHeight + 'px';
+        document.getElementById('heart-container').appendChild(heart);
+    }
+
+    // Function to display love messages
+    function displayLoveMessage() {
+        const loveMessages = [
+            "You make my world brighter!",
+            "You are my sunshine on a cloudy day!",
+            "Every moment with you is precious!",
+            "You complete me!",
+            "I am so grateful to have you in my life!"
+        ];
+        const randomIndex = Math.floor(Math.random() * loveMessages.length);
+        alert(loveMessages[randomIndex]);
+    }
+
+    // Event listener to create heart on click
+    document.addEventListener('click', function(event) {
+        createHeart();
+        displayLoveMessage();
+    });
+</script>
 </body>
 </html>
